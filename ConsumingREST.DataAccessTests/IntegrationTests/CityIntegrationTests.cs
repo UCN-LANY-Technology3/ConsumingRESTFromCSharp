@@ -16,7 +16,7 @@ namespace ConsumingREST.DataAccessTests
         [TestInitialize]
         public void Init()
         {
-            _dao = DaoFactory.Create<City>(RestSharpDataContext.Instance);
+            _dao = DaoFactory.Create<City>(FlurlDataContext.Instance);
         }
 
         [TestMethod]

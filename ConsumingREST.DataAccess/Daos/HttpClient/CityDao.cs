@@ -26,11 +26,6 @@ namespace ConsumingREST.DataAccess.Daos.Http
             throw new NotImplementedException();
         }
 
-        public IEnumerable<City> Read(Func<City, bool> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Update(City model)
         {
             throw new NotImplementedException();
@@ -50,6 +45,23 @@ namespace ConsumingREST.DataAccess.Daos.Http
                 string responseJson = response.Content.ReadAsStringAsync().Result;
                 IEnumerable<City> result = JsonConvert.DeserializeObject<IEnumerable<City>>(responseJson);
                 return result;
+            }
+            return null;
+        }
+
+        public IEnumerable<City> Read(Func<City, bool> predicate)
+        {
+            using HttpClient client = DataContext.Open();
+
+            string resource = "/postnumre";
+
+            HttpResponseMessage response = client.GetAsync(resource).Result;
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                string responseJson = response.Content.ReadAsStringAsync().Result;
+                IEnumerable<City> result = JsonConvert.DeserializeObject<IEnumerable<City>>(responseJson);
+                return result.Where(predicate);
             }
             return null;
         }

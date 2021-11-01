@@ -17,7 +17,20 @@ namespace ConsumingREST.DataAccess
             {
                 return CreateRestSharpClientDao<TModel>(dataContext);
             }
+            if (typeof(IDataContext<string>).IsAssignableFrom(dataContext.GetType()))
+            {
+                return CreateFlurlClientDao<TModel>(dataContext);
+            }
             throw new DaoException("DataContext connection not supported");
+        }
+
+        private static IDao<TModel> CreateFlurlClientDao<TModel>(IDataContext dataContext)
+        {
+            return typeof(TModel) switch
+            {
+                var dao when dao == typeof(City) => new Daos.Flurl.CityDao(dataContext) as IDao<TModel>,
+                _ => throw new DaoException("Unknown model type")
+            };
         }
 
         private static IDao<TModel> CreateRestSharpClientDao<TModel>(IDataContext dataContext)
