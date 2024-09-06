@@ -24,6 +24,7 @@ The application sends GET/POST requests to a sample API, parses JSON responses, 
 ```csharp
 var client = new HttpClient();
 var response = await client.GetAsync("https://api.example.com/data");
+```
 
 ## Contribution
 Contributions are welcome! Please feel free to fork this repository, make changes, and submit a pull request.
