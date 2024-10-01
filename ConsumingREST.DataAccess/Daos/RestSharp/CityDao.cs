@@ -8,9 +8,10 @@ namespace ConsumingREST.DataAccess.Daos.RestSharp;
 
 class CityDao : BaseDao<IRestClient>, ICityDao
 {
-    public CityDao(IDataContext dataContext) : base(dataContext as IDataContext<IRestClient>)
+    public CityDao(IDataContext<IRestClient> dataContext) : base(dataContext)
     {
     }
+
 
     #region Not Implemented
 

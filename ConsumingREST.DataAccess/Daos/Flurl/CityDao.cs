@@ -9,9 +9,10 @@ namespace ConsumingREST.DataAccess.Daos.Flurl;
 
 class CityDao : BaseDao<string>, ICityDao
 {
-    public CityDao(IDataContext dataContext) : base(dataContext as IDataContext<string>)
+    public CityDao(IDataContext<string> dataContext) : base(dataContext)
     {
     }
+
 
     #region Not implemented
 

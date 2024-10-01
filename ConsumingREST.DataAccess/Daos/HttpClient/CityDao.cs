@@ -10,7 +10,7 @@ namespace ConsumingREST.DataAccess.Daos.Http;
 
 class CityDao : BaseDao<HttpClient>, ICityDao
 {
-    public CityDao(IDataContext dataContext) : base(dataContext as IDataContext<HttpClient>)
+    public CityDao(IDataContext<HttpClient> dataContext) : base(dataContext)
     {
     }
 
