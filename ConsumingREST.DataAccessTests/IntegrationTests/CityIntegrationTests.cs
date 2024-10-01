@@ -15,7 +15,7 @@ namespace ConsumingREST.DataAccessTests
         [TestInitialize]
         public void Init()
         {
-            _dao = DaoFactory.Create<City>(HttpClientDataContext.Instance);
+            _dao = DaoFactory.Create<City>(SqlMemoryDataContext.Instance);
         }
 
         [TestMethod]

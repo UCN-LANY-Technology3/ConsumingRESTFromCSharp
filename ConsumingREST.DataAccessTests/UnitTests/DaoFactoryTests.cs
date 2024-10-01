@@ -2,6 +2,7 @@
 using ConsumingREST.DataAccess.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System.Data;
 using System.Net.Http;
 
 namespace ConsumingREST.DataAccessTests.UnitTests
@@ -10,7 +11,7 @@ namespace ConsumingREST.DataAccessTests.UnitTests
     public class DaoFactoryTests
     {
         [TestMethod]
-        public void ShouldCreateCityDao()
+        public void ShouldCreateCityDaoWithHttpClient()
         {
             IDataContext<HttpClient> dataContext = Mock.Of<IDataContext<HttpClient>>();
 
@@ -18,5 +19,16 @@ namespace ConsumingREST.DataAccessTests.UnitTests
 
             Assert.IsNotNull(dao);
         }
+
+        [TestMethod]
+        public void ShouldCreateCityDaoWithIDbConnection()
+        {
+            IDataContext<IDbConnection> dataContext = Mock.Of<IDataContext<IDbConnection>>();
+
+            IDao<City> dao = DaoFactory.Create<City>(dataContext);
+
+            Assert.IsNotNull(dao);
+        }
+
     }
 }
