@@ -4,18 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsumingREST.DataAccess
+namespace ConsumingREST.DataAccess;
+
+public interface IDao<TModel>
 {
-    public interface IDao<TModel>
-    {
-        TModel Create(TModel model);
+    TModel Create(TModel model);
 
-        IEnumerable<TModel> Read();
+    IEnumerable<TModel> ReadAll();
 
-        IEnumerable<TModel> Read(Func<TModel, bool> predicate);
+    bool Update(TModel model);
 
-        bool Update(TModel model);
-
-        bool Delete(TModel model);
-    }
+    bool Delete(TModel model);
 }

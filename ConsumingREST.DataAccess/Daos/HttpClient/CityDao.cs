@@ -6,64 +6,63 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 
-namespace ConsumingREST.DataAccess.Daos.Http
+namespace ConsumingREST.DataAccess.Daos.Http;
+
+class CityDao : BaseDao<HttpClient>, ICityDao
 {
-    class CityDao : BaseDao<HttpClient>, IDao<City>
+    public CityDao(IDataContext dataContext) : base(dataContext as IDataContext<HttpClient>)
     {
-        public CityDao(IDataContext dataContext) : base(dataContext as IDataContext<HttpClient>)
+    }
+
+    #region Not Implemented
+
+    public City Create(City model)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool Delete(City model)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool Update(City model)
+    {
+        throw new NotImplementedException();
+    }
+    #endregion
+
+    public IEnumerable<City> ReadAll()
+    {
+        using HttpClient client = DataContext.Open();
+
+        string resource = "/postnumre";
+
+        HttpResponseMessage response = client.GetAsync(resource).Result;
+
+        if (response.StatusCode == HttpStatusCode.OK)
         {
+            string responseJson = response.Content.ReadAsStringAsync().Result;
+            IEnumerable<City> result = JsonConvert.DeserializeObject<IEnumerable<City>>(responseJson);
+            return result;
         }
+        return null;
+    }
 
-        #region Not Implemented
+    public IEnumerable<City> ReadByPostNummer(string postnr)
+    {
+        using HttpClient client = DataContext.Open();
 
-        public City Create(City model)
+        string resource = $"/postnumre/{postnr}";
+
+        HttpResponseMessage response = client.GetAsync(resource).Result;
+
+        if (response.StatusCode == HttpStatusCode.OK)
         {
-            throw new NotImplementedException();
+            string responseJson = response.Content.ReadAsStringAsync().Result;
+            IEnumerable<City> result = JsonConvert.DeserializeObject<IEnumerable<City>>(responseJson);
+            return result;
         }
-
-        public bool Delete(City model)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(City model)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
-
-        public IEnumerable<City> Read()
-        {
-            using HttpClient client = DataContext.Open();
-
-            string resource = "/postnumre";
-
-            HttpResponseMessage response = client.GetAsync(resource).Result;
-
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                string responseJson = response.Content.ReadAsStringAsync().Result;
-                IEnumerable<City> result = JsonConvert.DeserializeObject<IEnumerable<City>>(responseJson);
-                return result;
-            }
-            return null;
-        }
-
-        public IEnumerable<City> Read(Func<City, bool> predicate)
-        {
-            using HttpClient client = DataContext.Open();
-
-            string resource = "/postnumre";
-
-            HttpResponseMessage response = client.GetAsync(resource).Result;
-
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                string responseJson = response.Content.ReadAsStringAsync().Result;
-                IEnumerable<City> result = JsonConvert.DeserializeObject<IEnumerable<City>>(responseJson);
-                return result.Where(predicate);
-            }
-            return null;
-        }
+        return null;
     }
 }

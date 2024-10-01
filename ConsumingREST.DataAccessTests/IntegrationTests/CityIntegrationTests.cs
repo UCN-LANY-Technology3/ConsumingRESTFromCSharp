@@ -15,13 +15,13 @@ namespace ConsumingREST.DataAccessTests
         [TestInitialize]
         public void Init()
         {
-            _dao = DaoFactory.Create<City>(FlurlDataContext.Instance);
+            _dao = DaoFactory.Create<City>(HttpClientDataContext.Instance);
         }
 
         [TestMethod]
         public void ShouldGetListOfCities()
         {
-            IEnumerable<City> cities = _dao.Read();
+            IEnumerable<City> cities = _dao.ReadAll();
 
             Assert.IsNotNull(cities);
             Assert.IsTrue(cities.Any(c => c.Nr == "9000"));
@@ -30,7 +30,7 @@ namespace ConsumingREST.DataAccessTests
         [TestMethod]
         public void ShouldGetListOfCitiesWithPostalCodeStartsWithNine()
         {
-            IEnumerable<City> cities = _dao.Read(c => c.Nr.StartsWith("9"));
+            IEnumerable<City> cities = _dao.ReadAll().Where(c => c.Nr.StartsWith("9"));
 
             Assert.IsNotNull(cities);
             Assert.IsTrue(cities.Any(c => c.Nr == "9000"));
