@@ -1,9 +1,8 @@
 using ConsumingREST.DataAccess;
-using ConsumingREST.Model;
+using ConsumingREST.DataAccess.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 
 namespace ConsumingREST.DataAccessTests
 {

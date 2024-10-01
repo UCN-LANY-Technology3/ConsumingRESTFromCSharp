@@ -1,11 +1,9 @@
-﻿using ConsumingREST.Model;
+﻿using ConsumingREST.DataAccess.Entities;
 using Flurl;
 using Flurl.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsumingREST.DataAccess.Daos.Flurl
 {

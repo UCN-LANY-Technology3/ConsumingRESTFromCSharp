@@ -1,4 +1,4 @@
-﻿using ConsumingREST.Model;
+﻿using ConsumingREST.DataAccess.Entities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

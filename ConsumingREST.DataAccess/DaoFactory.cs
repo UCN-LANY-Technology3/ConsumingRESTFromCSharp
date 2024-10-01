@@ -1,6 +1,5 @@
-﻿using ConsumingREST.Model;
+﻿using ConsumingREST.DataAccess.Entities;
 using RestSharp;
-using System;
 using System.Net.Http;
 
 namespace ConsumingREST.DataAccess

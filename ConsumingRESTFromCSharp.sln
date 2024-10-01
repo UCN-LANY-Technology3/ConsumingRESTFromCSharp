@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumingREST.DataAccess", "ConsumingREST.DataAccess\ConsumingREST.DataAccess.csproj", "{B2136DED-726A-4F59-A825-50EB0C1E0F4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsumingREST.DataAccess", "ConsumingREST.DataAccess\ConsumingREST.DataAccess.csproj", "{B2136DED-726A-4F59-A825-50EB0C1E0F4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumingREST.Model", "ConsumingREST.Model\ConsumingREST.Model.csproj", "{869E26E0-D26F-4393-8237-5450BBC9B443}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumingREST.DataAccessTests", "ConsumingREST.DataAccessTests\ConsumingREST.DataAccessTests.csproj", "{182DF878-8B1E-4E8C-BD5B-46D7B1F92837}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsumingREST.DataAccessTests", "ConsumingREST.DataAccessTests\ConsumingREST.DataAccessTests.csproj", "{182DF878-8B1E-4E8C-BD5B-46D7B1F92837}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		{B2136DED-726A-4F59-A825-50EB0C1E0F4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2136DED-726A-4F59-A825-50EB0C1E0F4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2136DED-726A-4F59-A825-50EB0C1E0F4B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{869E26E0-D26F-4393-8237-5450BBC9B443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{869E26E0-D26F-4393-8237-5450BBC9B443}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{869E26E0-D26F-4393-8237-5450BBC9B443}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{869E26E0-D26F-4393-8237-5450BBC9B443}.Release|Any CPU.Build.0 = Release|Any CPU
 		{182DF878-8B1E-4E8C-BD5B-46D7B1F92837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{182DF878-8B1E-4E8C-BD5B-46D7B1F92837}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{182DF878-8B1E-4E8C-BD5B-46D7B1F92837}.Release|Any CPU.ActiveCfg = Release|Any CPU
